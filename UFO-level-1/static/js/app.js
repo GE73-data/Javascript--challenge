@@ -52,5 +52,25 @@ button.on("click", function() {
     });
     })
 
+//Click function
+function handleClick() {
+
+    //Date and time
+    var date = d3.select("#datetime").property("value");
+    let filteredData = tableData;
+
+    //Filter
+    if (date) {
+        filteredData = filteredData.filter(row => row.datetime === date);
+    }
+
+    buildTable(filteredData);
+}
+
+//Filter with button press
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+//Build Table
+// buildTable(tableData);
 
 
